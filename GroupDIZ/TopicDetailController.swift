@@ -1,5 +1,5 @@
 //
-//  TopicController.swift
+//  TopicDetailController.swift
 //  GroupDIZ
 //
 //  Created by Eric Chen on 7/5/14.
@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TopicController: UIViewController {
+class TopicDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var topicId: String!
+    var topicTitle: String!
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return 20
@@ -16,14 +19,13 @@ class TopicController: UIViewController {
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("detail") as UITableViewCell
-        //        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "topic")
-        //        let rowData:NSDictionary = self.tableData[indexPath.row] as NSDictionary;
         cell.textLabel.text = "This is a detail title"
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = self.topicTitle
         // Do any additional setup after loading the view, typically from a nib.
     }
     
