@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  GroupDIZ
 //
 //  Created by Eric Chen on 7/5/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return 20

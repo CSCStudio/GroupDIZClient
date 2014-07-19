@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25C1AD1A1967FC690084B753 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1AD191967FC690084B753 /* DetailController.swift */; };
+		25C1AD1A1967FC690084B753 /* TopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1AD191967FC690084B753 /* TopicController.swift */; };
 		25FB670E1967E27F0065FA44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB670D1967E27F0065FA44 /* AppDelegate.swift */; };
-		25FB67101967E27F0065FA44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB670F1967E27F0065FA44 /* ViewController.swift */; };
+		25FB67101967E27F0065FA44 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB670F1967E27F0065FA44 /* MainViewController.swift */; };
 		25FB67131967E27F0065FA44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FB67111967E27F0065FA44 /* Main.storyboard */; };
 		25FB67151967E27F0065FA44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25FB67141967E27F0065FA44 /* Images.xcassets */; };
 		25FB67211967E27F0065FA44 /* GroupDIZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB67201967E27F0065FA44 /* GroupDIZTests.swift */; };
+		F80ADF99197A437A00151037 /* PointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF98197A437A00151037 /* PointController.swift */; };
+		F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9A197A43E800151037 /* CreatePointController.swift */; };
+		F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9C197A441100151037 /* CreateTopicController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +29,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		25C1AD191967FC690084B753 /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		25C1AD191967FC690084B753 /* TopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicController.swift; sourceTree = "<group>"; };
 		25FB67081967E27F0065FA44 /* GroupDIZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupDIZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FB670C1967E27F0065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FB670D1967E27F0065FA44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25FB670F1967E27F0065FA44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		25FB670F1967E27F0065FA44 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		25FB67121967E27F0065FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25FB67141967E27F0065FA44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		25FB671A1967E27F0065FA44 /* GroupDIZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupDIZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FB671F1967E27F0065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FB67201967E27F0065FA44 /* GroupDIZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDIZTests.swift; sourceTree = "<group>"; };
+		F80ADF98197A437A00151037 /* PointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointController.swift; sourceTree = "<group>"; };
+		F80ADF9A197A43E800151037 /* CreatePointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePointController.swift; sourceTree = "<group>"; };
+		F80ADF9C197A441100151037 /* CreateTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTopicController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +83,12 @@
 		25FB670A1967E27F0065FA44 /* GroupDIZ */ = {
 			isa = PBXGroup;
 			children = (
-				25C1AD191967FC690084B753 /* DetailController.swift */,
+				25C1AD191967FC690084B753 /* TopicController.swift */,
 				25FB670D1967E27F0065FA44 /* AppDelegate.swift */,
-				25FB670F1967E27F0065FA44 /* ViewController.swift */,
+				F80ADF98197A437A00151037 /* PointController.swift */,
+				F80ADF9A197A43E800151037 /* CreatePointController.swift */,
+				25FB670F1967E27F0065FA44 /* MainViewController.swift */,
+				F80ADF9C197A441100151037 /* CreateTopicController.swift */,
 				25FB67111967E27F0065FA44 /* Main.storyboard */,
 				25FB67141967E27F0065FA44 /* Images.xcassets */,
 				25FB670B1967E27F0065FA44 /* Supporting Files */,
@@ -211,8 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25FB67101967E27F0065FA44 /* ViewController.swift in Sources */,
-				25C1AD1A1967FC690084B753 /* DetailController.swift in Sources */,
+				F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */,
+				25FB67101967E27F0065FA44 /* MainViewController.swift in Sources */,
+				25C1AD1A1967FC690084B753 /* TopicController.swift in Sources */,
+				F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */,
+				F80ADF99197A437A00151037 /* PointController.swift in Sources */,
 				25FB670E1967E27F0065FA44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

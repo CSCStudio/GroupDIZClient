@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TopicController.swift
 //  GroupDIZ
 //
 //  Created by Eric Chen on 7/5/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailController: UIViewController {
+class TopicController: UIViewController {
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return 20
