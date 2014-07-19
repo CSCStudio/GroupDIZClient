@@ -16,6 +16,7 @@
 		F80ADF99197A437A00151037 /* PointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF98197A437A00151037 /* PointController.swift */; };
 		F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9A197A43E800151037 /* CreatePointController.swift */; };
 		F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9C197A441100151037 /* CreateTopicController.swift */; };
+		F86395F7197A614E00B0A107 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86395F6197A614E00B0A107 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		F80ADF98197A437A00151037 /* PointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointController.swift; sourceTree = "<group>"; };
 		F80ADF9A197A43E800151037 /* CreatePointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePointController.swift; sourceTree = "<group>"; };
 		F80ADF9C197A441100151037 /* CreateTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTopicController.swift; sourceTree = "<group>"; };
+		F86395F6197A614E00B0A107 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				25FB670D1967E27F0065FA44 /* AppDelegate.swift */,
 				F80ADF98197A437A00151037 /* PointController.swift */,
 				F80ADF9A197A43E800151037 /* CreatePointController.swift */,
+				F86395F6197A614E00B0A107 /* APIService.swift */,
 				25FB670F1967E27F0065FA44 /* TopicListController.swift */,
 				F80ADF9C197A441100151037 /* CreateTopicController.swift */,
 				25FB67111967E27F0065FA44 /* Main.storyboard */,
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */,
+				F86395F7197A614E00B0A107 /* APIService.swift in Sources */,
 				25FB67101967E27F0065FA44 /* TopicListController.swift in Sources */,
 				25C1AD1A1967FC690084B753 /* TopicDetailController.swift in Sources */,
 				F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */,

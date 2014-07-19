@@ -10,6 +10,9 @@ import UIKit
 
 class CreateTopicController: UIViewController {
     
+    @IBAction func cancelCreateTopic(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

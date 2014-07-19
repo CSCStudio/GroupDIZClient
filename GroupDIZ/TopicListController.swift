@@ -8,17 +8,18 @@
 
 import UIKit
 
-class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIServiceDelegate {
  
-    var topicList: [Dictionary<String, String>]!
-    
+    var topicList: NSArray = NSArray()
+    var apiService: APIService = APIService()
     @IBOutlet var topicListTableView: UITableView
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "showTopicDetail") {
             let indexPath = topicListTableView.indexPathForSelectedRow()
             let topicController = segue.destinationViewController as TopicDetailController
-            topicController.topicTitle = topicList[indexPath.row]["title"]
+            let rowData = topicList[indexPath.row] as NSDictionary
+            topicController.topicTitle = rowData.objectForKey("title") as NSString
         }
     }
     
@@ -31,22 +32,24 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
         if (cell == nil) {
             let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "topic")
         }
-        let rowData = topicList[indexPath.row]
-        cell.textLabel.text = rowData["title"]
+        let rowData = topicList[indexPath.row] as NSDictionary
+        cell.textLabel.text = rowData.objectForKey("title") as NSString
         return cell
     }
 
     func setupTopicListForUser() -> () {
-        // TODO: write a fetching method to get topicList
-        topicList = [
-            ["title":"topic title 1", "id":"1"],
-            ["title":"topic title 2", "id":"2"],
-            ["title":"topic title 3", "id":"3"]
-        ]
+        // change topic list api url
+        apiService.getTopicList("http://www.douban.com/j/app/radio/channels")
+    }
+    
+    func didReceiveResults(data: NSDictionary) {
+        // change channels to api wrapper, eg 'topics'
+        topicList = data.objectForKey("channels") as NSArray
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiService.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         self.setupTopicListForUser()
     }

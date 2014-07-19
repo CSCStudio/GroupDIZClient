@@ -134,7 +134,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="创建讨论" id="efs-KQ-GdA">
-                                        <barButtonItem key="leftBarButtonItem" title="取消" id="t5V-ij-eAr"/>
+                                        <barButtonItem key="leftBarButtonItem" title="取消" id="t5V-ij-eAr">
+                                            <connections>
+                                                <action selector="cancelCreateTopic:" destination="u6z-RC-NWl" id="Odj-7A-C4i"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="创建" id="hLm-sU-iJa"/>
                                     </navigationItem>
                                 </items>
@@ -174,7 +178,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="写想法" id="OCn-gs-x0E">
-                                        <barButtonItem key="leftBarButtonItem" title="取消" id="r6r-8V-elb"/>
+                                        <barButtonItem key="leftBarButtonItem" title="取消" id="r6r-8V-elb">
+                                            <connections>
+                                                <action selector="cancelCreatePoint:" destination="xhj-l8-HBL" id="f5G-Ib-S7I"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="发布" id="wAw-i8-bvS"/>
                                     </navigationItem>
                                 </items>
