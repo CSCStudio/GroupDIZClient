@@ -8,30 +8,62 @@
 
 import UIKit
 
-class TopicDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TopicDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIServiceDelegate {
     
-    var topicId: String!
-    var topicTitle: String!
+    var topicData: NSDictionary!
+    var pointList: NSArray = NSArray()
+    var apiService: APIService = APIService()
+    
+    @IBOutlet var topicDescription: UILabel
+    @IBOutlet var pointsTableView: UITableView
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue?.identifier == "showPoint") {
+            let indexPath = pointsTableView.indexPathForSelectedRow()
+            let pointController = segue.destinationViewController as PointController
+            let rowData = pointList[indexPath.row] as NSDictionary
+            pointController.pointData = rowData
+        }
+    }
+    
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return pointList.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("detail") as UITableViewCell
-        cell.textLabel.text = "This is a detail title"
+        if (cell == nil) {
+            let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "detail")
+        }
+        println(pointList)
+        let rowData = pointList[indexPath.row] as NSDictionary
+        cell.textLabel.text = rowData.objectForKey("title") as NSString
         return cell
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = self.topicTitle
-        // Do any additional setup after loading the view, typically from a nib.
+        apiService.delegate = self
+        self.navigationItem.title = self.topicData.objectForKey("title")  as NSString
+        self.topicDescription.text = self.topicData.objectForKey("description")  as NSString
+        let id = self.topicData.objectForKey("id") as Int
+        apiService.onSub("http://zuoyouba.com/api/v0/1/topics/\(id)")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    } 
+    }
+    
+    func didReceiveResults(data: NSDictionary) {
+        // change channels to api wrapper, eg 'topics'
+        pointList = data.objectForKey("points") as NSArray
+        self.pointsTableView.reloadData()
+    }
+    
+    
 }
 

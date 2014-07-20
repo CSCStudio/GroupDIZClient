@@ -19,7 +19,7 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
             let indexPath = topicListTableView.indexPathForSelectedRow()
             let topicController = segue.destinationViewController as TopicDetailController
             let rowData = topicList[indexPath.row] as NSDictionary
-            topicController.topicTitle = rowData.objectForKey("title") as NSString
+            topicController.topicData = rowData
         }
     }
     
