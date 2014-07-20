@@ -12,16 +12,16 @@ class PointController: UIViewController {
     
     var pointData: NSDictionary!
     
-    @IBOutlet var pointTitle: UILabel
     @IBOutlet var pointUser: UILabel
-    @IBOutlet var createdAt: UILabel
+    @IBOutlet var createAt: UILabel
+    @IBOutlet var pointTitle: UILabel
     @IBOutlet var pointDescription: UILabel
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pointTitle.text = self.pointData.objectForKey("title")  as NSString
-        //self.pointUser.text = self.pointData.objectForKey("username")  as NSString
-        self.createdAt.text = self.pointData.objectForKey("created_at")  as NSString
+        self.pointUser.text = self.pointData.objectForKey("username")  as NSString
+        self.createAt.text = self.pointData.objectForKey("created_at")  as NSString
         self.pointDescription.text = self.pointData.objectForKey("description")  as NSString
     }
     
