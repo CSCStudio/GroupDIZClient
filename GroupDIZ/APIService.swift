@@ -16,7 +16,7 @@ class APIService: NSObject {
 
     var delegate:APIServiceDelegate?
     
-    func getTopicList(url:String) {
+    func onSub(url:String) {
         let nsUrl = NSURL(string: url)
         let request = NSURLRequest(URL: nsUrl)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(

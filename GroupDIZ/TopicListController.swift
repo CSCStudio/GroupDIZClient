@@ -39,12 +39,13 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
 
     func setupTopicListForUser() -> () {
         // change topic list api url
-        apiService.getTopicList("http://www.douban.com/j/app/radio/channels")
+        apiService.onSub("http://zuoyouba.com/api/v0/1/topics")
     }
     
     func didReceiveResults(data: NSDictionary) {
         // change channels to api wrapper, eg 'topics'
-        topicList = data.objectForKey("channels") as NSArray
+        topicList = data.objectForKey("topics") as NSArray
+        self.topicListTableView.reloadData()
     }
     
     override func viewDidLoad() {
