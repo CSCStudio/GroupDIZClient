@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Eric Chen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 @objc protocol APIServiceDelegate {
     func didReceiveResults(data: NSDictionary)
@@ -15,6 +15,12 @@ import Foundation
 class APIService: NSObject {
 
     var delegate:APIServiceDelegate?
+    var username:NSString?
+    
+    func userIdentifier() -> NSNumber {
+        let identifier = UIDevice.currentDevice().respondsToSelector(Selector("identifierForVendor"))
+        return identifier
+    }
     
     func onSub(url:String) {
         let nsUrl = NSURL(string: url)

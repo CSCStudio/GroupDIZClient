@@ -8,20 +8,12 @@
 
 import UIKit
 
-class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIServiceDelegate {
+class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
  
     var topicList: NSArray = NSArray()
     var apiService: APIService = APIService()
     @IBOutlet weak var topicListTableView: UITableView!
-    
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue?.identifier == "showTopicDetail") {
-            let indexPath = topicListTableView.indexPathForSelectedRow()
-            let topicController = segue.destinationViewController as TopicDetailController
-            let rowData = topicList[indexPath.row] as NSDictionary
-            topicController.topicData = rowData
-        }
-    }
+
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return topicList.count
@@ -37,22 +29,18 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
 
-    func setupTopicListForUser() -> () {
-        // change topic list api url
-        apiService.onSub("http://zuoyouba.com/api/v0/1/topics")
-    }
-    
-    func didReceiveResults(data: NSDictionary) {
-        // change channels to api wrapper, eg 'topics'
-        topicList = data.objectForKey("topics") as NSArray
-        self.topicListTableView.reloadData()
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue?.identifier == "showTopicDetail") {
+            let indexPath = topicListTableView.indexPathForSelectedRow()
+            let topicController = segue.destinationViewController as TopicDetailController
+            let rowData = topicList[indexPath.row] as NSDictionary
+            topicController.topicData = rowData
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        apiService.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
-        self.setupTopicListForUser()
     }
 
     override func didReceiveMemoryWarning() {

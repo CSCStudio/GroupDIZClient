@@ -17,6 +17,8 @@
 		F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9A197A43E800151037 /* CreatePointController.swift */; };
 		F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9C197A441100151037 /* CreateTopicController.swift */; };
 		F86395F7197A614E00B0A107 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86395F6197A614E00B0A107 /* APIService.swift */; };
+		F8CCDAC4198C9302005C8EEA /* UserSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */; };
+		F8CCDAC6198CA633005C8EEA /* AppStarterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCDAC5198CA633005C8EEA /* AppStarterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		F80ADF9A197A43E800151037 /* CreatePointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePointController.swift; sourceTree = "<group>"; };
 		F80ADF9C197A441100151037 /* CreateTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTopicController.swift; sourceTree = "<group>"; };
 		F86395F6197A614E00B0A107 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
+		F8CCDAC5198CA633005C8EEA /* AppStarterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStarterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 				25FB670F1967E27F0065FA44 /* TopicListController.swift */,
 				F80ADF9C197A441100151037 /* CreateTopicController.swift */,
 				25FB67111967E27F0065FA44 /* Main.storyboard */,
+				F8CCDAC5198CA633005C8EEA /* AppStarterController.swift */,
+				F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */,
 				25FB67141967E27F0065FA44 /* Images.xcassets */,
 				25FB670B1967E27F0065FA44 /* Supporting Files */,
 			);
@@ -226,8 +232,10 @@
 				F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */,
 				F86395F7197A614E00B0A107 /* APIService.swift in Sources */,
 				25FB67101967E27F0065FA44 /* TopicListController.swift in Sources */,
+				F8CCDAC4198C9302005C8EEA /* UserSettingsController.swift in Sources */,
 				25C1AD1A1967FC690084B753 /* TopicDetailController.swift in Sources */,
 				F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */,
+				F8CCDAC6198CA633005C8EEA /* AppStarterController.swift in Sources */,
 				F80ADF99197A437A00151037 /* PointController.swift in Sources */,
 				25FB670E1967E27F0065FA44 /* AppDelegate.swift in Sources */,
 			);
