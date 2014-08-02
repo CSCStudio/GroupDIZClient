@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		25C1AD1A1967FC690084B753 /* TopicDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1AD191967FC690084B753 /* TopicDetailController.swift */; };
+		25CE2A4F198CE2FD00D65A8D /* CustomTopicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE2A4E198CE2FD00D65A8D /* CustomTopicListCell.swift */; };
+		25CE2A51198CE32A00D65A8D /* CustomViewPointListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE2A50198CE32A00D65A8D /* CustomViewPointListCell.swift */; };
 		25FB670E1967E27F0065FA44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB670D1967E27F0065FA44 /* AppDelegate.swift */; };
 		25FB67101967E27F0065FA44 /* TopicListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB670F1967E27F0065FA44 /* TopicListController.swift */; };
 		25FB67131967E27F0065FA44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FB67111967E27F0065FA44 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		25C1AD191967FC690084B753 /* TopicDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicDetailController.swift; sourceTree = "<group>"; };
+		25CE2A4E198CE2FD00D65A8D /* CustomTopicListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTopicListCell.swift; sourceTree = "<group>"; };
+		25CE2A50198CE32A00D65A8D /* CustomViewPointListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewPointListCell.swift; sourceTree = "<group>"; };
 		25FB67081967E27F0065FA44 /* GroupDIZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupDIZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FB670C1967E27F0065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FB670D1967E27F0065FA44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				25FB670F1967E27F0065FA44 /* TopicListController.swift */,
 				F80ADF9C197A441100151037 /* CreateTopicController.swift */,
 				25FB67111967E27F0065FA44 /* Main.storyboard */,
+				25CE2A4E198CE2FD00D65A8D /* CustomTopicListCell.swift */,
+				25CE2A50198CE32A00D65A8D /* CustomViewPointListCell.swift */,
 				F8CCDAC5198CA633005C8EEA /* AppStarterController.swift */,
 				F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */,
 				25FB67141967E27F0065FA44 /* Images.xcassets */,
@@ -235,6 +241,8 @@
 				F8CCDAC4198C9302005C8EEA /* UserSettingsController.swift in Sources */,
 				25C1AD1A1967FC690084B753 /* TopicDetailController.swift in Sources */,
 				F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */,
+				25CE2A4F198CE2FD00D65A8D /* CustomTopicListCell.swift in Sources */,
+				25CE2A51198CE32A00D65A8D /* CustomViewPointListCell.swift in Sources */,
 				F8CCDAC6198CA633005C8EEA /* AppStarterController.swift in Sources */,
 				F80ADF99197A437A00151037 /* PointController.swift in Sources */,
 				25FB670E1967E27F0065FA44 /* AppDelegate.swift in Sources */,
