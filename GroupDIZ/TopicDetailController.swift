@@ -47,7 +47,6 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         apiService.delegate = self
-        self.navigationItem.title = self.topicData.objectForKey("title")  as NSString
         self.topicDescription.text = self.topicData.objectForKey("description")  as NSString
         let id = self.topicData.objectForKey("id") as Int
         apiService.onSub("http://zuoyouba.com/api/v0/1/topics/\(id)")
