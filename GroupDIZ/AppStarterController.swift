@@ -14,7 +14,6 @@ class AppStarterController: UIViewController, APIServiceDelegate {
     var topicList: NSArray = NSArray()
     
     func didReceiveResults(data: NSDictionary) {
-        // change channels to api wrapper, eg 'topics'
         let user = data.objectForKey("user") as NSDictionary
         if (user.objectForKey("nickname")) {
             self.performSegueWithIdentifier("goToList", sender: self)
@@ -38,6 +37,7 @@ class AppStarterController: UIViewController, APIServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiService.delegate = self
         checkNameAndTopics()
         // Do any additional setup after loading the view, typically from a nib.
     }
