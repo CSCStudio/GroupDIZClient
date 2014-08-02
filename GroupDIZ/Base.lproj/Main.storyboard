@@ -349,10 +349,16 @@
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="SubmitNickName:" destination="pGe-4y-B4N" eventType="touchUpInside" id="vqE-iG-J99"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nickNameField" destination="tWN-sG-htu" id="AnZ-fA-Hho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCu-Ut-Aim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
