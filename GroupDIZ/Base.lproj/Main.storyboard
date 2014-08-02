@@ -249,7 +249,11 @@
                                                 <action selector="cancelCreateTopic:" destination="u6z-RC-NWl" id="Odj-7A-C4i"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="创建" id="hLm-sU-iJa"/>
+                                        <barButtonItem key="rightBarButtonItem" title="创建" id="hLm-sU-iJa">
+                                            <connections>
+                                                <action selector="createTopic:" destination="u6z-RC-NWl" id="0J5-cj-Gcl"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -270,6 +274,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionField" destination="8EX-nV-bIs" id="zrG-j2-P9S"/>
+                        <outlet property="titleField" destination="htZ-2a-rbY" id="R1f-Pe-kU9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeV-QX-bvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

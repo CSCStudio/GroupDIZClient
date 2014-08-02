@@ -31,6 +31,8 @@ class APIService: NSObject {
         }
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(
             response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
+            print(response)
+            print(data)
             var result = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
             self.delegate?.didReceiveResults(result)
         })

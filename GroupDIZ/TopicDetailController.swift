@@ -42,7 +42,12 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
         cell.textLabel.text = rowData.objectForKey("title") as NSString
         return cell
     }
-    
+
+    func didReceiveResults(data: NSDictionary) {
+        // change channels to api wrapper, eg 'topics'
+        pointList = data.objectForKey("points") as NSArray
+        self.pointsTableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +61,6 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func didReceiveResults(data: NSDictionary) {
-        // change channels to api wrapper, eg 'topics'
-        pointList = data.objectForKey("points") as NSArray
-        self.pointsTableView.reloadData()
-    }
-    
     
 }
 
