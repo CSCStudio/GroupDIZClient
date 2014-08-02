@@ -22,15 +22,17 @@ class APIService: NSObject {
         return identifier
     }
     
-    func onSub(url:String) {
+    func onSub(url:String, method:NSString = "Get", data:NSMutableData = NSMutableData()) {
         let nsUrl = NSURL(string: url)
-        let request = NSURLRequest(URL: nsUrl)
+        let request = NSMutableURLRequest(URL: nsUrl)
+        request.HTTPMethod = method
+        if (data.length > 0) {
+            request.HTTPBody = data
+        }
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(
             response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
             var result = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
-            if (result.count > 0) {
-                self.delegate?.didReceiveResults(result)
-            }
+            self.delegate?.didReceiveResults(result)
         })
     }
 }

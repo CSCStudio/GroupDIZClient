@@ -14,17 +14,21 @@ class AppStarterController: UIViewController, APIServiceDelegate {
     var topicList: NSArray = NSArray()
     
     func didReceiveResults(data: NSDictionary) {
-        let user = data.objectForKey("user") as NSDictionary
-        if (user.objectForKey("nickname")) {
-            self.performSegueWithIdentifier("goToList", sender: self)
-            self.topicList = user.objectForKey("topics") as NSArray
-        } else {
+        if (data.count == 0) {
             self.performSegueWithIdentifier("goToSettings", sender: self)
+        } else {
+            if (data.objectForKey("nickname")) {
+                self.performSegueWithIdentifier("goToList", sender: self)
+                self.topicList = data.objectForKey("topics") as NSArray
+            } else {
+                self.performSegueWithIdentifier("goToSettings", sender: self)
+            }
         }
     }
     
     func checkNameAndTopics() {
-        let identifier = UIDevice.currentDevice().respondsToSelector(Selector("identifierForVendor"))
+        let identifierForVendor = UIDevice.currentDevice().identifierForVendor
+        let identifier = identifierForVendor.UUIDString
         apiService.onSub("http://zuoyouba.com/api/v0/1/users/\(identifier)")
     }
 
