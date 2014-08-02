@@ -24,7 +24,7 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
         if (cell == nil) {
             let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "topic")
         }
-        let rowData = topicList[indexPath.row] as NSDictionary
+        let rowData = self.topicList[indexPath.row] as NSDictionary
         cell.textLabel.text = rowData.objectForKey("title") as NSString
         return cell
     }

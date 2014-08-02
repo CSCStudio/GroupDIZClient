@@ -18,8 +18,8 @@ class AppStarterController: UIViewController, APIServiceDelegate {
             self.performSegueWithIdentifier("goToSettings", sender: self)
         } else {
             if (data.objectForKey("nickname")) {
-                self.performSegueWithIdentifier("goToList", sender: self)
                 self.topicList = data.objectForKey("topics") as NSArray
+                self.performSegueWithIdentifier("goToList", sender: self)
             } else {
                 self.performSegueWithIdentifier("goToSettings", sender: self)
             }
