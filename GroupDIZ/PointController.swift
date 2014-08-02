@@ -12,10 +12,10 @@ class PointController: UIViewController {
     
     var pointData: NSDictionary!
     
-    @IBOutlet var pointUser: UILabel
-    @IBOutlet var createAt: UILabel
-    @IBOutlet var pointTitle: UILabel
-    @IBOutlet var pointDescription: UILabel
+    @IBOutlet weak var pointUser: UILabel!
+    @IBOutlet weak var createAt: UILabel!
+    @IBOutlet weak var pointTitle: UILabel!
+    @IBOutlet weak var pointDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

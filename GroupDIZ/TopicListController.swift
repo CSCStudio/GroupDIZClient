@@ -12,7 +12,7 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
  
     var topicList: NSArray = NSArray()
     var apiService: APIService = APIService()
-    @IBOutlet var topicListTableView: UITableView
+    @IBOutlet weak var topicListTableView: UITableView!
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "showTopicDetail") {

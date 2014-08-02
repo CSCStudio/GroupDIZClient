@@ -14,8 +14,8 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
     var pointList: NSArray = NSArray()
     var apiService: APIService = APIService()
     
-    @IBOutlet var topicDescription: UILabel
-    @IBOutlet var pointsTableView: UITableView
+    @IBOutlet weak var topicDescription: UILabel!
+    @IBOutlet weak var pointsTableView: UITableView!
     
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
