@@ -32,7 +32,6 @@ class AppStarterController: UIViewController, APIServiceDelegate, UserSettingsDe
     // TODO: modify API to return topics as well when setup nickname
     func updateSettings() {
         self.dismissViewControllerAnimated(false, completion: {() in
-            self.topicList = NSArray()
             self.performSegueWithIdentifier("goToList", sender: self)
         })
     }
@@ -46,7 +45,7 @@ class AppStarterController: UIViewController, APIServiceDelegate, UserSettingsDe
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "goToList") {
             let topicListController = segue.destinationViewController as TopicListController
-            topicListController.topicList = self.topicList
+            topicListController.topicList = self.topicList.mutableCopy() as NSMutableArray
         } else if (segue?.identifier == "goToSettings") {
             let userSettingsController = segue.destinationViewController as UserSettingsController
             userSettingsController.delegate = self

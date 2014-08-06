@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate, CreateTopicDelegate {
  
     // MARK: Properties
-    var topicList: NSArray = NSArray()
+    var topicList: NSMutableArray = NSMutableArray()
     var apiService: APIService = APIService()
     @IBOutlet weak var topicListTableView: UITableView!
 
@@ -30,6 +30,11 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
 
+    func didCreateTopic(topic: AnyObject) {
+        self.topicList.addObject(topic)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: Override View Functions
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "showTopicDetail") {
@@ -37,6 +42,9 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
             let topicController = segue.destinationViewController as TopicDetailController
             let rowData = topicList[indexPath.row] as NSDictionary
             topicController.topicData = rowData
+        } else if (segue?.identifier == "createTopic") {
+            let topicController = segue.destinationViewController as CreateTopicController
+            topicController.delegate = self
         }
     }
     

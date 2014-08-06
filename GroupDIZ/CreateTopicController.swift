@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol CreateTopicDelegate {
+    func didCreateTopic(topic: AnyObject)
+}
+
 class CreateTopicController: UIViewController, APIServiceDelegate {
     
     // MARK: Properties
     var apiService: APIService = APIService()
+    var delegate: CreateTopicDelegate?
     @IBOutlet weak var titleField: UITextView!
     @IBOutlet weak var descriptionField: UITextView!
     
@@ -29,9 +34,8 @@ class CreateTopicController: UIViewController, APIServiceDelegate {
     }
     
     // MARK: Delegate Functions
-    func didReceiveResults(data: NSDictionary) {
-        // topic = data.objectForKey("topic") as NSArray
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func didReceiveResults(response: NSDictionary) {
+        self.delegate?.didCreateTopic(response)
     }
     
     func didReceiveError(description: String) {

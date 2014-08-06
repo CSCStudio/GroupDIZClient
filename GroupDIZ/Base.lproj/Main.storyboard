@@ -76,7 +76,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4HT-WA-sKM"/>
                                     <barButtonItem title="创建话题" id="6Fs-0z-Qzm">
                                         <connections>
-                                            <segue destination="u6z-RC-NWl" kind="modal" id="D44-tv-blB"/>
+                                            <segue destination="u6z-RC-NWl" kind="modal" identifier="createTopic" id="D44-tv-blB"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="b3w-Sc-N6S"/>
