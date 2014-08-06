@@ -19,8 +19,8 @@ class APIService: NSObject {
     var delegate:APIServiceDelegate?
     
     class var baseUrl:String {
-//        return "http://zuoyouba.com/api/v0/1"
-        return "http://0.0.0.0:3000/api/v0/1"
+        return "http://zuoyouba.com/api/v0/1"
+//        return "http://0.0.0.0:3000/api/v0/1"
     }
     
     class var identifier:String {
@@ -55,8 +55,8 @@ class APIService: NSObject {
         return manager
     }
     
-    private func handleResponse(responseObject: AnyObject) {
-        if (responseObject.isKindOfClass(NSDictionary)){
+    private func handleResponse(responseObject: AnyObject?) {
+        if let response:NSDictionary = responseObject as? NSDictionary {
             self.delegate?.didReceiveResults(responseObject as NSDictionary)
         } else {
             // not valid response, eg: nil
@@ -64,18 +64,14 @@ class APIService: NSObject {
         }
     }
     
-    private func handleError(error: NSError, responseObject: AnyObject) {
-        if (responseObject.isKindOfClass(NSDictionary)){
-            let response = responseObject as NSDictionary
-            var description = error.localizedDescription
+    private func handleError(error: NSError, responseObject: AnyObject?) {
+        var description = error.localizedDescription
+        if let response:NSDictionary = responseObject as? NSDictionary {
             if (response.objectForKey("message")) {
                 description = response.objectForKey("message") as String
             }
-            self.delegate?.didReceiveError?(description)
-        } else {
-            // not valid response, eg: nil
-            println("response not valid")
         }
+        self.delegate?.didReceiveError?(description)
     }
     
     // MARK: Functions

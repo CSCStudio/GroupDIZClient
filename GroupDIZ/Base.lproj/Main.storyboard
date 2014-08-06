@@ -322,6 +322,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionField" destination="1QJ-J2-Qmh" id="Fqm-Dd-EO5"/>
+                        <outlet property="titleField" destination="sea-tw-4Lb" id="MCe-n1-e5w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPH-9e-w3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

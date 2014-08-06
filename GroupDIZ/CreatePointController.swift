@@ -8,7 +8,18 @@
 
 import UIKit
 
+protocol CreatePointDelegate {
+    func didCreatePoint(point: AnyObject)
+}
+
 class CreatePointController: UIViewController {
+
+    // MARK: Properties
+    var apiService: APIService = APIService()
+    var delegate: CreateTopicDelegate?
+    
+    @IBOutlet weak var titleField: UITextView!
+    @IBOutlet weak var descriptionField: UITextView!
     
     // MARK: Actions
     @IBAction func cancelCreatePoint(sender: AnyObject) {
