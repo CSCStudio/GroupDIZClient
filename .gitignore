@@ -1,5 +1,5 @@
 .DS_Store
 Pods/**
-GroupDIZ.xcworkspace/xcuserdata/*
-GroupDIZ.xcodeproj/xcuserdata/*
+GroupDIZ.xcworkspace/xcuserdata/**
+GroupDIZ.xcodeproj/xcuserdata/**
 GroupDIZ.xcodeproj/project.xcworkspace/xcuserdata/*
