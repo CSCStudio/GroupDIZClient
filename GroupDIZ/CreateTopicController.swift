@@ -10,11 +10,12 @@ import UIKit
 
 class CreateTopicController: UIViewController, APIServiceDelegate {
     
+    // MARK: Properties
     var apiService: APIService = APIService()
-    
     @IBOutlet weak var titleField: UITextView!
     @IBOutlet weak var descriptionField: UITextView!
     
+    // MARK: Actions
     @IBAction func createTopic(sender: AnyObject) {
         if let title = self.titleField.text {
             let description = self.descriptionField.text
@@ -27,11 +28,18 @@ class CreateTopicController: UIViewController, APIServiceDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: Delegate Functions
     func didReceiveResults(data: NSDictionary) {
         // topic = data.objectForKey("topic") as NSArray
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func didReceiveError(description: String) {
+        let alertView = UIAlertView(title: "Error", message: description, delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
+    }
+    
+    // MARK: Override View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         apiService.delegate = self

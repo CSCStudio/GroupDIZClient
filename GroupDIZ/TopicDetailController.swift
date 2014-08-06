@@ -10,6 +10,7 @@ import UIKit
 
 class TopicDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIServiceDelegate {
     
+    // MARK: Properties
     var topicData: NSDictionary!
     var pointList: NSArray = NSArray()
     var apiService: APIService = APIService()
@@ -17,6 +18,7 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var topicDescription: UILabel!
     @IBOutlet weak var pointsTableView: UITableView!
     
+    // MARK: Delegate Functions
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return pointList.count
     }
@@ -38,13 +40,20 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
         self.pointsTableView.reloadData()
     }
     
-    func getTopicDetails() {
+    func didReceiveError(description: String) {
+        let alertView = UIAlertView(title: "Error", message: description, delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
+    }
+    
+    // MARK: Internal Functions
+    internal func getTopicDetails() {
         topicDescription.text = topicData.objectForKey("description")  as NSString
         let id = topicData.objectForKey("id") as Int
         let parameters = ["identifier": APIService.identifier]
         apiService.get("/topics/\(id)", parameters: parameters)
     }
     
+    // MARK: Override View Functions
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "showPoint") {
             let indexPath = pointsTableView.indexPathForSelectedRow()

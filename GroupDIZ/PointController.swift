@@ -10,6 +10,7 @@ import UIKit
 
 class PointController: UIViewController {
     
+    // MARK: Properties
     var pointData: NSDictionary!
     
     @IBOutlet weak var pointUser: UILabel!
@@ -17,6 +18,7 @@ class PointController: UIViewController {
     @IBOutlet weak var pointTitle: UILabel!
     @IBOutlet weak var pointDescription: UILabel!
     
+    // MARK: Override View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pointTitle.text = self.pointData.objectForKey("title")  as NSString

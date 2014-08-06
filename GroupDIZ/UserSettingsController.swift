@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol UserSettingsDelegate {
+    func updateSettings()
+}
+
 class UserSettingsController: UIViewController, APIServiceDelegate {
     
+    // MARK: Properties
     var apiService: APIService = APIService()
-    
+    var delegate:UserSettingsDelegate?
     @IBOutlet weak var nickNameField: UITextField!
+    
+    // MARK: Actions
     @IBAction func SubmitNickName(sender: AnyObject) {
         if let nickName = nickNameField.text {
             let parameters = ["nickname": nickName, "description": description, "identifier": APIService.identifier]
@@ -20,15 +27,20 @@ class UserSettingsController: UIViewController, APIServiceDelegate {
         }
     }
     
+    // MARK: Delegate Functions
     func didReceiveResults(data: NSDictionary) {
-
+        self.delegate?.updateSettings()
     }
     
+    func didReceiveError(description: String) {
+        let alertView = UIAlertView(title: "Error", message: description, delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
+    }
+    
+    // MARK: Override View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         apiService.delegate = self
-        let identifier = UIDevice.currentDevice().respondsToSelector(Selector("identifierForVendor"))
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

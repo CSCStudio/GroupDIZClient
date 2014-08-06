@@ -10,11 +10,12 @@ import UIKit
 
 class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
  
+    // MARK: Properties
     var topicList: NSArray = NSArray()
     var apiService: APIService = APIService()
     @IBOutlet weak var topicListTableView: UITableView!
 
-    
+    // MARK: Delegate Functions
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return topicList.count
     }
@@ -29,6 +30,7 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
 
+    // MARK: Override View Functions
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "showTopicDetail") {
             let indexPath = topicListTableView.indexPathForSelectedRow()

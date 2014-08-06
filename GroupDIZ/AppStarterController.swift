@@ -8,11 +8,13 @@
 
 import UIKit
 
-class AppStarterController: UIViewController, APIServiceDelegate {
+class AppStarterController: UIViewController, APIServiceDelegate, UserSettingsDelegate {
     
+    // MARK: Properties
     var apiService: APIService = APIService()
     var topicList: NSArray = NSArray()
     
+    // MARK: Delegate Functions
     func didReceiveResults(response: NSDictionary) {
         if (response.objectForKey("nickname")) {
             self.topicList = response.objectForKey("topics") as NSArray
@@ -22,10 +24,25 @@ class AppStarterController: UIViewController, APIServiceDelegate {
         }
     }
     
-    func checkNameAndTopics() {
+    func didReceiveError(description: String) {
+        let alertView = UIAlertView(title: "Error", message: description, delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
+    }
+    
+    // TODO: modify API to return topics as well when setup nickname
+    func updateSettings() {
+        self.dismissViewControllerAnimated(false, completion: {() in
+            self.topicList = NSArray()
+            self.performSegueWithIdentifier("goToList", sender: self)
+        })
+    }
+    
+    // MARK: Internal Functions
+    internal func checkNameAndTopics() {
         apiService.get("/users/\(APIService.identifier)")
     }
 
+    // MARK: Override View Functions
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "goToList") {
             let topicListController = segue.destinationViewController as TopicListController

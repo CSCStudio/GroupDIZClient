@@ -15,7 +15,9 @@ import UIKit
 
 class APIService: NSObject {
 
+    // MARK: Properties
     var delegate:APIServiceDelegate?
+    
     class var baseUrl:String {
         return "http://zuoyouba.com/api/v0/1"
     }
@@ -26,22 +28,13 @@ class APIService: NSObject {
         return identifier
     }
     
-    func userIdentifier() -> NSNumber {
-        let identifier = UIDevice.currentDevice().respondsToSelector(Selector("identifierForVendor"))
-        return identifier
-    }
-    
-    func initializeRequestManager() -> AFHTTPRequestOperationManager {
+    // MARK: Internal Functions
+    internal func initializeRequestManager() -> AFHTTPRequestOperationManager {
         let manager = AFHTTPRequestOperationManager()
         
         // setup requset and response serializer with json format
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
-        
-        if (!manager.reachabilityManager.reachable) {
-            manager.operationQueue.suspended = true
-            self.delegate?.didReceiveError?("Network not available")
-        }
         
 //        manager.reachabilityManager.startMonitoring()
 //        manager.reachabilityManager.setReachabilityStatusChangeBlock{(status:AFNetworkReachabilityStatus) in
@@ -50,6 +43,8 @@ class APIService: NSObject {
 //            // case AFNetworkReachabilityStatus.ReachableViaWWAN:
 //            case AFNetworkReachabilityStatus.NotReachable:
 //                manager.operationQueue.suspended = true
+//                let description = "Network not available!"
+//                self.delegate?.didReceiveError?(description)
 //            default:
 //                manager.operationQueue.suspended = false
 //            }
@@ -59,7 +54,7 @@ class APIService: NSObject {
         return manager
     }
     
-    func handleResponse(responseObject: AnyObject) {
+    internal func handleResponse(responseObject: AnyObject) {
         if (responseObject.isKindOfClass(NSDictionary)){
             self.delegate?.didReceiveResults(responseObject as NSDictionary)
         } else {
@@ -68,14 +63,11 @@ class APIService: NSObject {
         }
     }
     
-    func handleError(error: NSError) {
-        println("code: \(error.code)")
-        println("description: \(error.localizedDescription)")
+    internal func handleError(error: NSError) {
         self.delegate?.didReceiveError?(error.localizedDescription)
     }
     
-    // for parameters input, use NSDictionary and encode with AFJSONRequestSerializer
-    // let parameters = {"user":"admin", "password":"123456"}
+    // MARK: Public Functions
     func get(url:String, baseUrl:String = baseUrl, parameters:NSDictionary = NSDictionary()) {
         let requestUrl = baseUrl + url
         let manager = initializeRequestManager()
