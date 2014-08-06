@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BE7C5959-2B80-48E3-80DA-0FC120581D2E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GroupDIZ</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D465CD96FBF63D186770BD461BEFE20AA1107266</key>
+		<string>github.com:CSCStudio/GroupDIZClient.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GroupDIZ.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D465CD96FBF63D186770BD461BEFE20AA1107266</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:CSCStudio/GroupDIZClient.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D465CD96FBF63D186770BD461BEFE20AA1107266</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D465CD96FBF63D186770BD461BEFE20AA1107266</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GroupDIZClient</string>
+		</dict>
+	</array>
+</dict>
+</plist>
