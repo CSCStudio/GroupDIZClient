@@ -47,6 +47,9 @@ class AppStarterController: UIViewController, APIServiceDelegate, UserSettingsDe
         if (segue?.identifier == "goToList") {
             let topicListController = segue.destinationViewController as TopicListController
             topicListController.topicList = self.topicList
+        } else if (segue?.identifier == "goToSettings") {
+            let userSettingsController = segue.destinationViewController as UserSettingsController
+            userSettingsController.delegate = self
         }
     }
     
