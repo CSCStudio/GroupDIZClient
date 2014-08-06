@@ -54,7 +54,7 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
         apiService.delegate = self
         self.topicDescription.text = self.topicData.objectForKey("description")  as NSString
         let id = self.topicData.objectForKey("id") as Int
-        apiService.onSub("http://zuoyouba.com/api/v0/1/topics/\(id)")
+        apiService.get("/topics/\(id)")
     }
     
     override func didReceiveMemoryWarning() {

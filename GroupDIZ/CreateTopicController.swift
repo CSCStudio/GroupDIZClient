@@ -20,9 +20,8 @@ class CreateTopicController: UIViewController, APIServiceDelegate {
             let description = self.descriptionField.text
             let identifierForVendor = UIDevice.currentDevice().identifierForVendor
             let identifier = identifierForVendor.UUIDString
-            var data = NSMutableData()
-            data.appendData("title=\(title)&description=\(description)&identifier=\(identifier)".dataUsingEncoding(NSUTF8StringEncoding))
-            apiService.onSub("http://zuoyouba.com/api/v0/1/topics", method: "Post", data:data)
+            let parameters = ["title": title, "description": description, "identifier": identifier]
+            apiService.post("/topics", parameters:parameters)
         }
     }
     

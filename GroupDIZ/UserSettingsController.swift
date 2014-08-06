@@ -17,9 +17,8 @@ class UserSettingsController: UIViewController, APIServiceDelegate {
         if let nickName = nickNameField.text {
             let identifierForVendor = UIDevice.currentDevice().identifierForVendor
             let identifier = identifierForVendor.UUIDString
-            var data = NSMutableData()
-            data.appendData("nickname=\(nickName)&identifier=\(identifier)".dataUsingEncoding(NSUTF8StringEncoding))
-            apiService.onSub("http://zuoyouba.com/api/v0/1/users", method: "Post", data:data)
+            let parameters = ["nickname": nickName, "description": description, "identifier": identifier]
+            apiService.post("/users", parameters:parameters)
         }
     }
     

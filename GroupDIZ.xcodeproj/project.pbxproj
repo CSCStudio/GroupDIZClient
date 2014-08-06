@@ -13,6 +13,7 @@
 		25FB67131967E27F0065FA44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FB67111967E27F0065FA44 /* Main.storyboard */; };
 		25FB67151967E27F0065FA44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25FB67141967E27F0065FA44 /* Images.xcassets */; };
 		25FB67211967E27F0065FA44 /* GroupDIZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB67201967E27F0065FA44 /* GroupDIZTests.swift */; };
+		35E1818BBFD74152ABCC2227 /* libPods-GroupDIZ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D087FFD0D141AE97C9D2C5 /* libPods-GroupDIZ.a */; };
 		F80ADF99197A437A00151037 /* PointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF98197A437A00151037 /* PointController.swift */; };
 		F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9A197A43E800151037 /* CreatePointController.swift */; };
 		F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9C197A441100151037 /* CreateTopicController.swift */; };
@@ -42,12 +43,15 @@
 		25FB671A1967E27F0065FA44 /* GroupDIZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupDIZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FB671F1967E27F0065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FB67201967E27F0065FA44 /* GroupDIZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDIZTests.swift; sourceTree = "<group>"; };
+		C6D087FFD0D141AE97C9D2C5 /* libPods-GroupDIZ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupDIZ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A92F610C75400283F89F41 /* Pods-GroupDIZ.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupDIZ.xcconfig"; path = "Pods/Pods-GroupDIZ.xcconfig"; sourceTree = "<group>"; };
 		F80ADF98197A437A00151037 /* PointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointController.swift; sourceTree = "<group>"; };
 		F80ADF9A197A43E800151037 /* CreatePointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePointController.swift; sourceTree = "<group>"; };
 		F80ADF9C197A441100151037 /* CreateTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTopicController.swift; sourceTree = "<group>"; };
 		F86395F6197A614E00B0A107 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsController.swift; sourceTree = "<group>"; };
 		F8CCDAC5198CA633005C8EEA /* AppStarterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStarterController.swift; sourceTree = "<group>"; };
+		F8D7C1F019910CC70068ACE6 /* GroupDIZ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GroupDIZ-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E1818BBFD74152ABCC2227 /* libPods-GroupDIZ.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,8 @@
 				25FB670A1967E27F0065FA44 /* GroupDIZ */,
 				25FB671D1967E27F0065FA44 /* GroupDIZTests */,
 				25FB67091967E27F0065FA44 /* Products */,
+				E2A92F610C75400283F89F41 /* Pods-GroupDIZ.xcconfig */,
+				3AC6C06970434FA899112827 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +108,7 @@
 				F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */,
 				25FB67141967E27F0065FA44 /* Images.xcassets */,
 				25FB670B1967E27F0065FA44 /* Supporting Files */,
+				F8D7C1F019910CC70068ACE6 /* GroupDIZ-Bridging-Header.h */,
 			);
 			path = GroupDIZ;
 			sourceTree = "<group>";
@@ -130,6 +138,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3AC6C06970434FA899112827 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6D087FFD0D141AE97C9D2C5 /* libPods-GroupDIZ.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25FB67241967E27F0065FA44 /* Build configuration list for PBXNativeTarget "GroupDIZ" */;
 			buildPhases = (
+				EDAC1CD7EE6E4A10A33C0ACC /* Check Pods Manifest.lock */,
 				25FB67041967E27F0065FA44 /* Sources */,
 				25FB67051967E27F0065FA44 /* Frameworks */,
 				25FB67061967E27F0065FA44 /* Resources */,
+				93D797822AA8402891409E09 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,6 +241,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93D797822AA8402891409E09 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GroupDIZ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDAC1CD7EE6E4A10A33C0ACC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25FB67041967E27F0065FA44 /* Sources */ = {
@@ -350,23 +401,30 @@
 		};
 		25FB67251967E27F0065FA44 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A92F610C75400283F89F41 /* Pods-GroupDIZ.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GroupDIZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GroupDIZ/GroupDIZ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		25FB67261967E27F0065FA44 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A92F610C75400283F89F41 /* Pods-GroupDIZ.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = GroupDIZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GroupDIZ/GroupDIZ-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -13,23 +13,19 @@ class AppStarterController: UIViewController, APIServiceDelegate {
     var apiService: APIService = APIService()
     var topicList: NSArray = NSArray()
     
-    func didReceiveResults(data: NSDictionary) {
-        if (data.count == 0) {
-            self.performSegueWithIdentifier("goToSettings", sender: self)
+    func didReceiveResults(response: NSDictionary) {
+        if (response.objectForKey("nickname")) {
+            self.topicList = response.objectForKey("topics") as NSArray
+            self.performSegueWithIdentifier("goToList", sender: self)
         } else {
-            if (data.objectForKey("nickname")) {
-                self.topicList = data.objectForKey("topics") as NSArray
-                self.performSegueWithIdentifier("goToList", sender: self)
-            } else {
-                self.performSegueWithIdentifier("goToSettings", sender: self)
-            }
+            self.performSegueWithIdentifier("goToSettings", sender: self)
         }
     }
     
     func checkNameAndTopics() {
         let identifierForVendor = UIDevice.currentDevice().identifierForVendor
         let identifier = identifierForVendor.UUIDString
-        apiService.onSub("http://zuoyouba.com/api/v0/1/users/\(identifier)")
+        apiService.get("/users/\(identifier)")
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
