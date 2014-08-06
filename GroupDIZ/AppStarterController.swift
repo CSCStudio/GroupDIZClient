@@ -37,8 +37,8 @@ class AppStarterController: UIViewController, APIServiceDelegate, UserSettingsDe
         })
     }
     
-    // MARK: Internal Functions
-    internal func checkNameAndTopics() {
+    // MARK: Private Functions
+    private func checkNameAndTopics() {
         apiService.get("/users/\(APIService.identifier)")
     }
 

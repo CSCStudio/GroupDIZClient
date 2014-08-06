@@ -45,8 +45,8 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
         alertView.show()
     }
     
-    // MARK: Internal Functions
-    internal func getTopicDetails() {
+    // MARK: Private Functions
+    private func getTopicDetails() {
         topicDescription.text = topicData.objectForKey("description")  as NSString
         let id = topicData.objectForKey("id") as Int
         let parameters = ["identifier": APIService.identifier]

@@ -28,8 +28,8 @@ class APIService: NSObject {
         return identifier
     }
     
-    // MARK: Internal Functions
-    internal func initializeRequestManager() -> AFHTTPRequestOperationManager {
+    // MARK: Private Functions
+    private func initializeRequestManager() -> AFHTTPRequestOperationManager {
         let manager = AFHTTPRequestOperationManager()
         
         // setup requset and response serializer with json format
@@ -54,7 +54,7 @@ class APIService: NSObject {
         return manager
     }
     
-    internal func handleResponse(responseObject: AnyObject) {
+    private func handleResponse(responseObject: AnyObject) {
         if (responseObject.isKindOfClass(NSDictionary)){
             self.delegate?.didReceiveResults(responseObject as NSDictionary)
         } else {
@@ -63,11 +63,11 @@ class APIService: NSObject {
         }
     }
     
-    internal func handleError(error: NSError) {
+    private func handleError(error: NSError) {
         self.delegate?.didReceiveError?(error.localizedDescription)
     }
     
-    // MARK: Public Functions
+    // MARK: Functions
     func get(url:String, baseUrl:String = baseUrl, parameters:NSDictionary = NSDictionary()) {
         let requestUrl = baseUrl + url
         let manager = initializeRequestManager()
