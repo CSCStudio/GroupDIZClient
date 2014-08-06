@@ -15,9 +15,7 @@ class UserSettingsController: UIViewController, APIServiceDelegate {
     @IBOutlet weak var nickNameField: UITextField!
     @IBAction func SubmitNickName(sender: AnyObject) {
         if let nickName = nickNameField.text {
-            let identifierForVendor = UIDevice.currentDevice().identifierForVendor
-            let identifier = identifierForVendor.UUIDString
-            let parameters = ["nickname": nickName, "description": description, "identifier": identifier]
+            let parameters = ["nickname": nickName, "description": description, "identifier": APIService.identifier]
             apiService.post("/users", parameters:parameters)
         }
     }

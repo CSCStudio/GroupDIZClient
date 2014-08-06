@@ -16,9 +16,14 @@ import UIKit
 class APIService: NSObject {
 
     var delegate:APIServiceDelegate?
-    var username:NSString?
     class var baseUrl:String {
         return "http://zuoyouba.com/api/v0/1"
+    }
+    
+    class var identifier:String {
+        let identifierForVendor = UIDevice.currentDevice().identifierForVendor
+        let identifier = identifierForVendor.UUIDString
+        return identifier
     }
     
     func userIdentifier() -> NSNumber {

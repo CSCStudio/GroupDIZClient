@@ -23,9 +23,7 @@ class AppStarterController: UIViewController, APIServiceDelegate {
     }
     
     func checkNameAndTopics() {
-        let identifierForVendor = UIDevice.currentDevice().identifierForVendor
-        let identifier = identifierForVendor.UUIDString
-        apiService.get("/users/\(identifier)")
+        apiService.get("/users/\(APIService.identifier)")
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {

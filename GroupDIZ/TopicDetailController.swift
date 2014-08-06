@@ -17,17 +17,6 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var topicDescription: UILabel!
     @IBOutlet weak var pointsTableView: UITableView!
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue?.identifier == "showPoint") {
-            let indexPath = pointsTableView.indexPathForSelectedRow()
-            let pointController = segue.destinationViewController as PointController
-            let rowData = pointList[indexPath.row] as NSDictionary
-            pointController.pointData = rowData
-        }
-    }
-    
-    
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return pointList.count
     }
@@ -49,12 +38,26 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
         self.pointsTableView.reloadData()
     }
     
+    func getTopicDetails() {
+        topicDescription.text = topicData.objectForKey("description")  as NSString
+        let id = topicData.objectForKey("id") as Int
+        let parameters = ["identifier": APIService.identifier]
+        apiService.get("/topics/\(id)", parameters: parameters)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue?.identifier == "showPoint") {
+            let indexPath = pointsTableView.indexPathForSelectedRow()
+            let pointController = segue.destinationViewController as PointController
+            let rowData = pointList[indexPath.row] as NSDictionary
+            pointController.pointData = rowData
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         apiService.delegate = self
-        self.topicDescription.text = self.topicData.objectForKey("description")  as NSString
-        let id = self.topicData.objectForKey("id") as Int
-        apiService.get("/topics/\(id)")
+        getTopicDetails()
     }
     
     override func didReceiveMemoryWarning() {

@@ -18,9 +18,7 @@ class CreateTopicController: UIViewController, APIServiceDelegate {
     @IBAction func createTopic(sender: AnyObject) {
         if let title = self.titleField.text {
             let description = self.descriptionField.text
-            let identifierForVendor = UIDevice.currentDevice().identifierForVendor
-            let identifier = identifierForVendor.UUIDString
-            let parameters = ["title": title, "description": description, "identifier": identifier]
+            let parameters = ["title": title, "description": description, "identifier": APIService.identifier]
             apiService.post("/topics", parameters:parameters)
         }
     }
