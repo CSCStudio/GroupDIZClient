@@ -19,7 +19,8 @@ class APIService: NSObject {
     var delegate:APIServiceDelegate?
     
     class var baseUrl:String {
-        return "http://zuoyouba.com/api/v0/1"
+//        return "http://zuoyouba.com/api/v0/1"
+        return "http://0.0.0.0:3000/api/v0/1"
     }
     
     class var identifier:String {
@@ -63,8 +64,18 @@ class APIService: NSObject {
         }
     }
     
-    private func handleError(error: NSError) {
-        self.delegate?.didReceiveError?(error.localizedDescription)
+    private func handleError(error: NSError, responseObject: AnyObject) {
+        if (responseObject.isKindOfClass(NSDictionary)){
+            let response = responseObject as NSDictionary
+            var description = error.localizedDescription
+            if (response.objectForKey("message")) {
+                description = response.objectForKey("message") as String
+            }
+            self.delegate?.didReceiveError?(description)
+        } else {
+            // not valid response, eg: nil
+            println("response not valid")
+        }
     }
     
     // MARK: Functions
@@ -75,7 +86,7 @@ class APIService: NSObject {
             success: {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 self.handleResponse(responseObject)
             }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) in
-                self.handleError(error)
+                self.handleError(error, responseObject: operation.responseObject)
             }
         )
     }
@@ -88,7 +99,7 @@ class APIService: NSObject {
                 self.handleResponse(responseObject)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                self.handleError(error)
+                self.handleError(error, responseObject: operation.responseObject)
             }
         )
     }
@@ -101,7 +112,7 @@ class APIService: NSObject {
                 self.handleResponse(responseObject)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                self.handleError(error)
+                self.handleError(error, responseObject: operation.responseObject)
             }
         )
     }
@@ -114,7 +125,7 @@ class APIService: NSObject {
                 self.handleResponse(responseObject)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                self.handleError(error)
+                self.handleError(error, responseObject: operation.responseObject)
             }
         )
     }
