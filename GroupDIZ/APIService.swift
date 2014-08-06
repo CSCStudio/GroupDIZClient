@@ -10,7 +10,7 @@ import UIKit
 
 @objc protocol APIServiceDelegate {
     func didReceiveResults(response: NSDictionary)
-    optional func didReceiveError(error: NSError)
+    optional func didReceiveError(description: String)
 }
 
 class APIService: NSObject {
@@ -33,10 +33,29 @@ class APIService: NSObject {
     
     func initializeRequestManager() -> AFHTTPRequestOperationManager {
         let manager = AFHTTPRequestOperationManager()
+        
+        // setup requset and response serializer with json format
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
-        // other request settings
-        // manager.requestSerializer.setValue("608c6c08443c6d933576b90966b727358d0066b4", forHTTPHeaderField: "X-Auth-Token")
+        
+        if (!manager.reachabilityManager.reachable) {
+            manager.operationQueue.suspended = true
+            self.delegate?.didReceiveError?("Network not available")
+        }
+        
+//        manager.reachabilityManager.startMonitoring()
+//        manager.reachabilityManager.setReachabilityStatusChangeBlock{(status:AFNetworkReachabilityStatus) in
+//            switch (status) {
+//            // case AFNetworkReachabilityStatus.ReachableViaWiFi:
+//            // case AFNetworkReachabilityStatus.ReachableViaWWAN:
+//            case AFNetworkReachabilityStatus.NotReachable:
+//                manager.operationQueue.suspended = true
+//            default:
+//                manager.operationQueue.suspended = false
+//            }
+//        }
+//         manager.requestSerializer.setValue("608c6c08443c6d933576b90966b727358d0066b4", forHTTPHeaderField: "X-Auth-Token")
+        
         return manager
     }
     
@@ -52,7 +71,7 @@ class APIService: NSObject {
     func handleError(error: NSError) {
         println("code: \(error.code)")
         println("description: \(error.localizedDescription)")
-        self.delegate?.didReceiveError?(error)
+        self.delegate?.didReceiveError?(error.localizedDescription)
     }
     
     // for parameters input, use NSDictionary and encode with AFJSONRequestSerializer
