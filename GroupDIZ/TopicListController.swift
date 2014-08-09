@@ -45,6 +45,9 @@ class ListTopicsController: UIViewController, UITableViewDataSource, UITableView
         } else if (segue?.identifier == "createTopic") {
             let topicController = segue.destinationViewController as CreateTopicController
             topicController.delegate = self
+        } else if (segue?.identifier == "joinTopic"){
+            let joinController = segue.destinationViewController as JoinTopicController
+            joinController.delegate = self
         }
     }
     

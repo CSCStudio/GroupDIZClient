@@ -72,7 +72,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oyZ-h0-7Qu"/>
-                                    <barButtonItem title="加入讨论" id="l0Y-f2-TwH"/>
+                                    <barButtonItem title="加入讨论" id="l0Y-f2-TwH">
+                                        <connections>
+                                            <segue destination="3Te-z8-ufE" kind="modal" identifier="joinTopic" id="JG5-vh-W0v"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4HT-WA-sKM"/>
                                     <barButtonItem title="创建话题" id="6Fs-0z-Qzm">
                                         <connections>
@@ -257,15 +261,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="描述（可选）" id="8EX-nV-bIs">
-                                <rect key="frame" x="20" y="248" width="280" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="写标题" id="htZ-2a-rbY">
+                                <rect key="frame" x="20" y="93" width="280" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="写标题" id="htZ-2a-rbY">
-                                <rect key="frame" x="20" y="93" width="280" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="描述（可选）" id="8EX-nV-bIs">
+                                <rect key="frame" x="16" y="185" width="280" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -281,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeV-QX-bvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197" y="750"/>
+            <point key="canvasLocation" x="149" y="739"/>
         </scene>
         <!--Create Point Controller-->
         <scene sceneID="5T8-B9-D7p">
@@ -458,7 +462,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCu-Ut-Aim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-307" y="750"/>
+            <point key="canvasLocation" x="-910" y="793"/>
+        </scene>
+        <!--参加讨论组-->
+        <scene sceneID="91K-77-GNO">
+            <objects>
+                <viewController id="3Te-z8-ufE" customClass="JoinTopicController" customModule="GroupDIZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PNq-9j-qzq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input group code" minimumFontSize="17" id="QyW-5J-L6W">
+                                <rect key="frame" x="83" y="152" width="154" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LkY-b0-v1G">
+                                <rect key="frame" x="83" y="197" width="154" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.74980893339999999" green="0.74980893339999999" blue="0.74980893339999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="0.49999999999999994" y="0.0" width="1" height="1"/>
+                                <state key="normal" title="JOJIN NOW">
+                                    <color key="titleColor" red="0.99963909650000005" green="0.99963909650000005" blue="0.99963909650000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="3Te-z8-ufE" eventType="touchUpInside" id="mbd-QY-wwh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Group Found" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ooi-mr-fzL">
+                                <rect key="frame" x="88" y="108" width="149" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99963909650000005" green="0.99963909650000005" blue="0.99963909650000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.91523012910000001" green="0.038935223960000001" blue="0.053139773449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" id="dmn-QP-0Bh">
+                                <rect key="frame" x="0.0" y="21" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="参加讨论组" id="lVZ-bq-i6J">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="bRs-8m-NF0">
+                                            <connections>
+                                                <action selector="cancelCreateTopic:" destination="3Te-z8-ufE" id="GFf-Tb-gft"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="参加讨论组" id="KOA-cu-prV"/>
+                    <connections>
+                        <outlet property="alertMessage" destination="Ooi-mr-fzL" id="puZ-2n-YtE"/>
+                        <outlet property="groupCode" destination="QyW-5J-L6W" id="k3j-yU-Wfq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Oh-Ne-nMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="774"/>
         </scene>
         <!--App Starter Controller-->
         <scene sceneID="DAA-vp-efm">
