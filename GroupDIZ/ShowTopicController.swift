@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIServiceDelegate {
+class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIServiceDelegate {
     
     // MARK: Properties
     var topicData: NSDictionary!
@@ -57,7 +57,7 @@ class TopicDetailController: UIViewController, UITableViewDataSource, UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "showPoint") {
             let indexPath = pointsTableView.indexPathForSelectedRow()
-            let pointController = segue.destinationViewController as PointController
+            let pointController = segue.destinationViewController as ShowPointController
             let rowData = pointList[indexPath.row] as NSDictionary
             pointController.pointData = rowData
         }

@@ -45,7 +45,7 @@ class AppStarterController: UIViewController, APIServiceDelegate, UserSettingsDe
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "goToList") {
             let navigationController = segue.destinationViewController as UINavigationController
-            let topicListController = navigationController.viewControllers.first as TopicListController
+            let topicListController = navigationController.viewControllers.first as ListTopicsController
             topicListController.topicList = self.topicList.mutableCopy() as NSMutableArray
         } else if (segue?.identifier == "goToSettings") {
             let userSettingsController = segue.destinationViewController as UserSettingsController

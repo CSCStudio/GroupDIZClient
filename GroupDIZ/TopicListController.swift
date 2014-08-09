@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicListController: UIViewController, UITableViewDataSource, UITableViewDelegate, CreateTopicDelegate {
+class ListTopicsController: UIViewController, UITableViewDataSource, UITableViewDelegate, CreateTopicDelegate {
  
     // MARK: Properties
     var topicList: NSMutableArray = NSMutableArray()
@@ -39,7 +39,7 @@ class TopicListController: UIViewController, UITableViewDataSource, UITableViewD
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue?.identifier == "showTopicDetail") {
             let indexPath = topicListTableView.indexPathForSelectedRow()
-            let topicController = segue.destinationViewController as TopicDetailController
+            let topicController = segue.destinationViewController as ShowTopicController
             let rowData = topicList[indexPath.row] as NSDictionary
             topicController.topicData = rowData
         } else if (segue?.identifier == "createTopic") {

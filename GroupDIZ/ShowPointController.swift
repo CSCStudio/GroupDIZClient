@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PointController: UIViewController {
+class ShowPointController: UIViewController {
     
     // MARK: Properties
     var pointData: NSDictionary!

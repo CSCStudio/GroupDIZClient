@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25C1AD1A1967FC690084B753 /* TopicDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1AD191967FC690084B753 /* TopicDetailController.swift */; };
+		25C1AD1A1967FC690084B753 /* ShowTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1AD191967FC690084B753 /* ShowTopicController.swift */; };
 		25FB670E1967E27F0065FA44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB670D1967E27F0065FA44 /* AppDelegate.swift */; };
 		25FB67101967E27F0065FA44 /* TopicListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB670F1967E27F0065FA44 /* TopicListController.swift */; };
 		25FB67131967E27F0065FA44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FB67111967E27F0065FA44 /* Main.storyboard */; };
 		25FB67151967E27F0065FA44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25FB67141967E27F0065FA44 /* Images.xcassets */; };
 		25FB67211967E27F0065FA44 /* GroupDIZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB67201967E27F0065FA44 /* GroupDIZTests.swift */; };
 		35E1818BBFD74152ABCC2227 /* libPods-GroupDIZ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D087FFD0D141AE97C9D2C5 /* libPods-GroupDIZ.a */; };
-		F80ADF99197A437A00151037 /* PointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF98197A437A00151037 /* PointController.swift */; };
+		F80ADF99197A437A00151037 /* ShowPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF98197A437A00151037 /* ShowPointController.swift */; };
 		F80ADF9B197A43E800151037 /* CreatePointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9A197A43E800151037 /* CreatePointController.swift */; };
 		F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80ADF9C197A441100151037 /* CreateTopicController.swift */; };
 		F86395F7197A614E00B0A107 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86395F6197A614E00B0A107 /* APIService.swift */; };
@@ -33,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		25C1AD191967FC690084B753 /* TopicDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicDetailController.swift; sourceTree = "<group>"; };
+		25C1AD191967FC690084B753 /* ShowTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTopicController.swift; sourceTree = "<group>"; };
 		25FB67081967E27F0065FA44 /* GroupDIZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupDIZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FB670C1967E27F0065FA44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FB670D1967E27F0065FA44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		25FB67201967E27F0065FA44 /* GroupDIZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDIZTests.swift; sourceTree = "<group>"; };
 		C6D087FFD0D141AE97C9D2C5 /* libPods-GroupDIZ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GroupDIZ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A92F610C75400283F89F41 /* Pods-GroupDIZ.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupDIZ.xcconfig"; path = "Pods/Pods-GroupDIZ.xcconfig"; sourceTree = "<group>"; };
-		F80ADF98197A437A00151037 /* PointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointController.swift; sourceTree = "<group>"; };
+		F80ADF98197A437A00151037 /* ShowPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPointController.swift; sourceTree = "<group>"; };
 		F80ADF9A197A43E800151037 /* CreatePointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePointController.swift; sourceTree = "<group>"; };
 		F80ADF9C197A441100151037 /* CreateTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTopicController.swift; sourceTree = "<group>"; };
 		F86395F6197A614E00B0A107 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -73,6 +73,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D6BE0671995ED0600879BDD /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1D6BE06A1995EE6E00879BDD /* users */,
+				1D6BE0691995EE3C00879BDD /* points */,
+				1D6BE0681995EDF100879BDD /* topics */,
+				F8CCDAC5198CA633005C8EEA /* AppStarterController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		1D6BE0681995EDF100879BDD /* topics */ = {
+			isa = PBXGroup;
+			children = (
+				25FB670F1967E27F0065FA44 /* TopicListController.swift */,
+				F80ADF9C197A441100151037 /* CreateTopicController.swift */,
+				25C1AD191967FC690084B753 /* ShowTopicController.swift */,
+			);
+			name = topics;
+			sourceTree = "<group>";
+		};
+		1D6BE0691995EE3C00879BDD /* points */ = {
+			isa = PBXGroup;
+			children = (
+				F80ADF9A197A43E800151037 /* CreatePointController.swift */,
+				F80ADF98197A437A00151037 /* ShowPointController.swift */,
+			);
+			name = points;
+			sourceTree = "<group>";
+		};
+		1D6BE06A1995EE6E00879BDD /* users */ = {
+			isa = PBXGroup;
+			children = (
+				F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */,
+			);
+			name = users;
+			sourceTree = "<group>";
+		};
+		1D6BE06B1995EE8600879BDD /* services */ = {
+			isa = PBXGroup;
+			children = (
+				F86395F6197A614E00B0A107 /* APIService.swift */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		1D6BE06C1995EE9C00879BDD /* delegators */ = {
+			isa = PBXGroup;
+			children = (
+				25FB670D1967E27F0065FA44 /* AppDelegate.swift */,
+			);
+			name = delegators;
+			sourceTree = "<group>";
+		};
 		25FB66FF1967E27F0065FA44 = {
 			isa = PBXGroup;
 			children = (
@@ -96,16 +150,10 @@
 		25FB670A1967E27F0065FA44 /* GroupDIZ */ = {
 			isa = PBXGroup;
 			children = (
-				25C1AD191967FC690084B753 /* TopicDetailController.swift */,
-				25FB670D1967E27F0065FA44 /* AppDelegate.swift */,
-				F80ADF98197A437A00151037 /* PointController.swift */,
-				F80ADF9A197A43E800151037 /* CreatePointController.swift */,
-				F86395F6197A614E00B0A107 /* APIService.swift */,
-				25FB670F1967E27F0065FA44 /* TopicListController.swift */,
-				F80ADF9C197A441100151037 /* CreateTopicController.swift */,
+				1D6BE06C1995EE9C00879BDD /* delegators */,
+				1D6BE06B1995EE8600879BDD /* services */,
+				1D6BE0671995ED0600879BDD /* controllers */,
 				25FB67111967E27F0065FA44 /* Main.storyboard */,
-				F8CCDAC5198CA633005C8EEA /* AppStarterController.swift */,
-				F8CCDAC3198C9302005C8EEA /* UserSettingsController.swift */,
 				25FB67141967E27F0065FA44 /* Images.xcassets */,
 				25FB670B1967E27F0065FA44 /* Supporting Files */,
 				F8D7C1F019910CC70068ACE6 /* GroupDIZ-Bridging-Header.h */,
@@ -284,10 +332,10 @@
 				F86395F7197A614E00B0A107 /* APIService.swift in Sources */,
 				25FB67101967E27F0065FA44 /* TopicListController.swift in Sources */,
 				F8CCDAC4198C9302005C8EEA /* UserSettingsController.swift in Sources */,
-				25C1AD1A1967FC690084B753 /* TopicDetailController.swift in Sources */,
+				25C1AD1A1967FC690084B753 /* ShowTopicController.swift in Sources */,
 				F80ADF9D197A441100151037 /* CreateTopicController.swift in Sources */,
 				F8CCDAC6198CA633005C8EEA /* AppStarterController.swift in Sources */,
-				F80ADF99197A437A00151037 /* PointController.swift in Sources */,
+				F80ADF99197A437A00151037 /* ShowPointController.swift in Sources */,
 				25FB670E1967E27F0065FA44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
