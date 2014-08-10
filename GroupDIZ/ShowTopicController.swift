@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIServiceDelegate {
+class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewDelegate, CreatePointDelegate, APIServiceDelegate {
     
     // MARK: Properties
     var topicData: NSDictionary!
-    var pointList: NSArray = NSArray()
+    var pointList: NSMutableArray = NSMutableArray()
     var apiService: APIService = APIService()
     
+    @IBOutlet weak var creator: UILabel!
+    @IBOutlet weak var topicTitle: UILabel!
     @IBOutlet weak var topicDescription: UILabel!
     @IBOutlet weak var pointsTableView: UITableView!
     
@@ -28,7 +30,6 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
         if (cell == nil) {
             let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "detail")
         }
-        println(pointList)
         let rowData = pointList[indexPath.row] as NSDictionary
         cell.textLabel.text = rowData.objectForKey("title") as NSString
         return cell
@@ -36,21 +37,13 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
 
     func didReceiveResults(data: NSDictionary) {
         // change channels to api wrapper, eg 'topics'
-        pointList = data.objectForKey("points") as NSArray
+        self.pointList = data.objectForKey("points") as NSMutableArray
         self.pointsTableView.reloadData()
     }
     
     func didReceiveError(description: String) {
         let alertView = UIAlertView(title: "Error", message: description, delegate: self, cancelButtonTitle: "OK")
         alertView.show()
-    }
-    
-    // MARK: Private Functions
-    private func getTopicDetails() {
-        topicDescription.text = topicData.objectForKey("description")  as NSString
-        let id = topicData.objectForKey("id") as Int
-        let parameters = ["identifier": APIService.identifier]
-        apiService.get("/topics/\(id)", parameters: parameters)
     }
     
     // MARK: Override View Functions
@@ -60,19 +53,41 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
             let pointController = segue.destinationViewController as ShowPointController
             let rowData = pointList[indexPath.row] as NSDictionary
             pointController.pointData = rowData
+        }else if (segue?.identifier == "createPoint") {
+            let pointController = segue.destinationViewController as CreatePointController
+            pointController.delegate = self
+            pointController.topic_id = topicData.objectForKey("id") as Int
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         apiService.delegate = self
-        getTopicDetails()
+        showTopicDetails()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func didCreatePoint(point: AnyObject) {
+        self.pointList.addObject(point)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // MARK: Private showTopicDetails
+    private func showTopicDetails() {
+        println(topicData)
+        topicTitle.text = topicData.objectForKey("title")  as NSString
+        topicDescription.text = topicData.objectForKey("description")  as NSString
+        creator.text = topicData.objectForKey("creator_name") as NSString
+        let id = topicData.objectForKey("id") as Int
+        let parameters = ["identifier": APIService.identifier]
+        apiService.get("/topics/\(id)", parameters: parameters)
+    }
+    
     
 }
 

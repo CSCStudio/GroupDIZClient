@@ -10,7 +10,6 @@ import UIKit
 
 class JoinTopicController : UIViewController, APIServiceDelegate {
 
-    @IBOutlet weak var alertMessage: UILabel!
     @IBOutlet weak var groupCode: UITextField!
     
     var apiService: APIService = APIService()
@@ -19,7 +18,7 @@ class JoinTopicController : UIViewController, APIServiceDelegate {
     @IBAction func submit(sender: UIButton) {
         let code = groupCode.text
         if code.isEmpty{
-            self.alertMessage.text = "Please Input Code!"
+            alert("Please Input Code!")
         }else{
             let parameters = ["code": code, "identifier": APIService.identifier]
             apiService.post("/users/join_topic", parameters:parameters)
@@ -36,12 +35,16 @@ class JoinTopicController : UIViewController, APIServiceDelegate {
     }
     
     func didReceiveError(errorMessage: String) {
-        self.alertMessage.text = errorMessage
+        alert(errorMessage)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.alertMessage.text = ""
         apiService.delegate = self
+    }
+    
+    private func alert(message: NSString) {
+        let alertView = UIAlertView(title: message, message: "", delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
     }
 }
