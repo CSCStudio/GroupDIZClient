@@ -19,8 +19,8 @@ class APIService: NSObject {
     var delegate:APIServiceDelegate?
     
     class var baseUrl:String {
-        //return "http://zuoyouba.com/api/v0/1"
-        return "http://0.0.0.0:3000/api/v0/1"
+        return "http://zuoyouba.com/api/v0/1"
+        //return "http://0.0.0.0:3000/api/v0/1"
     }
     
     class var identifier:String {

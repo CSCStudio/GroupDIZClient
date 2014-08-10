@@ -12,7 +12,7 @@ protocol CreatePointDelegate {
     func didCreatePoint(point: AnyObject)
 }
 
-class CreatePointController: UIViewController {
+class CreatePointController: UIViewController, APIServiceDelegate {
 
     // MARK: Properties
     var apiService: APIService = APIService()
@@ -34,14 +34,14 @@ class CreatePointController: UIViewController {
             alertView.show()
         }else{
             let parameters = ["title": title, "description": self.descriptionField.text, "topic_id": topic_id,  "identifier": APIService.identifier]
-            apiService.post("/users/join_topic", parameters:parameters)
+            apiService.post("/points", parameters:parameters)
         }
     }
     
     // MARK: Override View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        apiService.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,5 +49,15 @@ class CreatePointController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK: Delegate Functions
+    func didReceiveResults(response: NSDictionary) {
+        self.delegate?.didCreatePoint(response)
+    }
+    
+    func didReceiveError(description: String) {
+        let alertView = UIAlertView(title: "Error", message: description, delegate: self, cancelButtonTitle: "OK")
+        alertView.show()
+    }
     
 }

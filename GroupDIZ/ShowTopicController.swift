@@ -37,8 +37,10 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
 
     func didReceiveResults(data: NSDictionary) {
         // change channels to api wrapper, eg 'topics'
-        self.pointList = data.objectForKey("points") as NSMutableArray
-        self.pointsTableView.reloadData()
+        if data.objectForKey("points") {
+            self.pointList = data.objectForKey("points") as NSMutableArray
+            self.pointsTableView.reloadData()
+        }
     }
     
     func didReceiveError(description: String) {
@@ -55,8 +57,8 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
             pointController.pointData = rowData
         }else if (segue?.identifier == "createPoint") {
             let pointController = segue.destinationViewController as CreatePointController
-            pointController.delegate = self
             pointController.topic_id = topicData.objectForKey("id") as Int
+            pointController.delegate = self
         }
     }
     
@@ -72,14 +74,13 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func didCreatePoint(point: AnyObject) {
-        self.pointList.addObject(point)
+        //pointList.addObject(point)
         self.dismissViewControllerAnimated(true, completion: nil)
+        showTopicDetails()
     }
-    
     
     // MARK: Private showTopicDetails
     private func showTopicDetails() {
-        println(topicData)
         topicTitle.text = topicData.objectForKey("title")  as NSString
         topicDescription.text = topicData.objectForKey("description")  as NSString
         creator.text = topicData.objectForKey("creator_name") as NSString
