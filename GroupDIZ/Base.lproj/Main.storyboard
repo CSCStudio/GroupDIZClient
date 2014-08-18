@@ -341,9 +341,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oIn-Zp-his"/>
-                                    <barButtonItem title="Disagree" id="n7r-V8-O9q"/>
+                                    <barButtonItem title="Disagree" id="n7r-V8-O9q">
+                                        <connections>
+                                            <action selector="disagree:" destination="cfH-P1-2Uo" id="PJi-da-afG"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bWb-Vb-fYK"/>
-                                    <barButtonItem title="Agree" id="2VK-oe-ezM"/>
+                                    <barButtonItem title="Agree" id="2VK-oe-ezM">
+                                        <connections>
+                                            <action selector="agree:" destination="cfH-P1-2Uo" id="XLb-3F-dKH"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="HQM-tu-Gcu"/>
                                 </items>
                             </toolbar>
