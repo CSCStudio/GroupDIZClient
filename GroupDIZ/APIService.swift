@@ -67,7 +67,7 @@ class APIService: NSObject {
     private func handleError(error: NSError, responseObject: AnyObject?) {
         var description = error.localizedDescription
         if let response:NSDictionary = responseObject as? NSDictionary {
-            if (response.objectForKey("message")) {
+            if ((response.objectForKey("message")) != nil) {
                 description = response.objectForKey("message") as String
             }
         }

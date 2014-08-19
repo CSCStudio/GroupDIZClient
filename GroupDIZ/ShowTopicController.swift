@@ -26,10 +26,7 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("detail") as UITableViewCell
-        if (cell == nil) {
-            let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "detail")
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("detail", forIndexPath: indexPath) as UITableViewCell
         let rowData = pointList[indexPath.row] as NSDictionary
         cell.textLabel.text = rowData.objectForKey("title") as NSString
         return cell
@@ -37,7 +34,7 @@ class ShowTopicController: UIViewController, UITableViewDataSource, UITableViewD
 
     func didReceiveResults(data: NSDictionary) {
         // change channels to api wrapper, eg 'topics'
-        if data.objectForKey("points") {
+        if (data.objectForKey("points") != nil) {
             self.pointList = data.objectForKey("points") as NSMutableArray
             self.pointsTableView.reloadData()
         }

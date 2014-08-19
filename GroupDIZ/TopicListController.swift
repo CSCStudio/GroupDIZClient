@@ -21,10 +21,7 @@ class ListTopicsController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("topic") as UITableViewCell
-        if (cell == nil) {
-            let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "topic")
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("topic", forIndexPath: indexPath) as UITableViewCell
         let rowData = self.topicList[indexPath.row] as NSDictionary
         cell.textLabel.text = rowData.objectForKey("title") as NSString
         return cell

@@ -16,7 +16,7 @@ class AppStarterController: UIViewController, APIServiceDelegate, UserSettingsDe
     
     // MARK: Delegate Functions
     func didReceiveResults(response: NSDictionary) {
-        if (response.objectForKey("nickname")) {
+        if ((response.objectForKey("nickname")) != nil) {
             self.topicList = response.objectForKey("topics") as NSArray
             self.performSegueWithIdentifier("goToList", sender: self)
         } else {
